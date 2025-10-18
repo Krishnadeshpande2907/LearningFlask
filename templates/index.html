@@ -1,0 +1,33 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Flask App</title>
+</head>
+<body> -->
+
+{% extends "base.html" %}
+
+{% block title %}Home - My Flask App{% endblock %}
+
+<!-- the changes can only be done in between the blocks-->
+{% block content %}
+    <h1>Welcome to My Flask App</h1>
+    <!-- <p>This is a basic index page with a value and a number below it.</p>
+    <p>Value: {{ value }}</p>
+    <p>Number: {{ number }}</p> -->
+    <ul>
+        {% for item in myList %}
+            <li>{{item}}</li>
+        {% endfor %}
+    </ul>
+    <!-- similarly could use the variables and data for sorting or other purposes
+    can use other templating features like loops and conditionals as well
+    can also give it styles -->
+
+{% endblock %}
+<!-- the details present on the page apart from this are part of the base file -->
+
+<!-- </body>
+</html> -->

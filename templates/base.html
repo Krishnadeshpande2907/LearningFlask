@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}My Flask App{% endblock %}</title>
+    <!-- {% block head %}{% endblock %} -->
+</head>
+<body>
+    <!-- <header>
+        <h1>My Flask App</a></h1>
+    </header> -->
+
+    <p>this will be present</p>
+    <!-- can be used for navbar, contents on the side, etc -->
+
+    {% block content %}
+    
+    {% endblock %}
+
+    <!-- <footer>
+        <small>&copy; {{ current_year if current_year is defined else "" }}</small>
+    </footer> -->
+
+    <!-- {% block scripts %}{% endblock %} -->
+</body>
+</html>
