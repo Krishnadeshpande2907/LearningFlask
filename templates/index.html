@@ -17,14 +17,28 @@
     <!-- <p>This is a basic index page with a value and a number below it.</p>
     <p>Value: {{ value }}</p>
     <p>Number: {{ number }}</p> -->
-    <ul>
+    
+    <!-- <ul>
         {% for item in myList %}
             <li>{{item}}</li>
         {% endfor %}
-    </ul>
+    </ul> -->
+    
     <!-- similarly could use the variables and data for sorting or other purposes
     can use other templating features like loops and conditionals as well
     can also give it styles -->
+
+    <form method="POST" action="{{url_for('index')}}">
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <input type="submit" value="Login">
+    </form>
+
+    <h1>Convert To CSV Two</h1>
+    <form method="POST" action="{{url_for('convert_csv')}}" enctype="multipart/form-data">
+    <input type="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+    <input type="submit" value="Upload File">
+    </form>
 
 {% endblock %}
 <!-- the details present on the page apart from this are part of the base file -->

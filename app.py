@@ -1,13 +1,31 @@
 from flask import Flask, request, make_response, render_template, redirect, url_for
+import pandas as pd
+import os
+import uuid
 
 app = Flask(__name__, template_folder='templates')
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    myValue = 10
-    myNumber = 50
-    list = [10, 20, 30, 40, 50]
-    return render_template('index.html', myList=list)
+    if request.method == 'GET':
+        return render_template('index.html')
+    elif request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+@app.route('/convert_csv', methods=['POST'])
+def convert_csv_two():
+    file = request.files['file']
+
+    df = pd.read_excel(file)
+
+    if not os.path.exists('downloads'):
+        os.makedirs('downloads')
+
+    filename = f'{uuid.uuid4()}.csv'
+    df.to_csv(os.path.join('downloads', filename))
+
+    return render_template('download.html', filename=filename)
 
 @app.route('/page1')
 def anotherRoute():
